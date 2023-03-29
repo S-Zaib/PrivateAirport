@@ -1,5 +1,5 @@
 # PrivateAirport
-Database Assignment 03 shahzain irfan I210841, Ahmad Moazam I210436
+Database Assignment 03 shahzaib irfan I210841, Ahmad Moazam I210436
 
 ## ERD Explanation / Q1
 
