@@ -1,0 +1,9 @@
+--q15
+SELECT DISTINCT p.Name, s.Date, GETDATE()
+FROM PILOT pi
+JOIN PERSON p ON pi.Ssn = p.Ssn
+JOIN FLIES f ON pi.Ssn = f.Ssn
+JOIN AIRPLANE a ON f.OF_TYPE = a.OF_TYPE
+JOIN PLANE_SERVICE ps ON a.Reg# = ps.Reg#
+JOIN [SERVICE] s ON ps.SERVICE_ID = s.SERVICE_ID
+WHERE CONVERT(DATE, s.[Date]) = CONVERT(DATE, getdate());

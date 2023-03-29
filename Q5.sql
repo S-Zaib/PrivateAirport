@@ -1,0 +1,5 @@
+--Q8
+SELECT p.Name, p.Phone
+FROM PERSON p
+JOIN OWNS o ON p.Ssn = o.Ssn
+WHERE o.Pdate BETWEEN DATEADD(MONTH, -1, GETDATE()) AND GETDATE()

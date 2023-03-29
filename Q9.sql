@@ -1,0 +1,7 @@
+--Q12
+SELECT pt.Model, AVG(s.Hours) AS Avg_Maintenance_Hours
+FROM PLANE_TYPE pt
+INNER JOIN AIRPLANE a ON pt.Model = a.OF_TYPE
+INNER JOIN PLANE_SERVICE ps ON a.Reg# = ps.Reg#
+INNER JOIN SERVICE s ON ps.SERVICE_ID = s.SERVICE_ID
+GROUP BY pt.Model;

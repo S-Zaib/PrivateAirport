@@ -1,0 +1,14 @@
+--q17
+SELECT A.Reg#, A.OF_TYPE
+FROM AIRPLANE A
+JOIN OWNS O ON A.Reg# = O.Reg#
+JOIN PERSON P ON O.Ssn = P.Ssn
+WHERE P.Category = 'Individual'
+AND NOT EXISTS (
+    SELECT 1
+    FROM PLANE_SERVICE PS
+    JOIN MAINTAINS M ON PS.SERVICE_ID = M.SERVICE_ID
+    JOIN EMPLOYEE E ON M.Ssn = E.Ssn
+    WHERE A.Reg# = PS.Reg#
+    AND E.Shift = 'Day'
+);
